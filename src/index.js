@@ -5,19 +5,13 @@ import MoviePage from "./pages/movieDetailsPage";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
+import SiteHeader from './components/siteHeader'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/movies/favorites">Favorites</Link>
-        </li>
-      </ul>
-      <Switch>
+    <SiteHeader />      {/* New Header  */}
+    <Switch>
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route path="/movies/:id" component={MoviePage} />
         <Route exact path="/" component={HomePage} />
