@@ -35,23 +35,47 @@ describe("Home Page ", () => {
 
   describe("Filtering", () => {
     describe("By movie title", () => {
-      it("should only display movies with entered text in the title", () => {
-        let searchString = "m";
-        let matchingMovies = filterByTitle(movies, searchString);
-        cy.get("#filled-search").clear().type(searchString); // Enter m in text box
-        cy.get(".MuiCardHeader-content").should(
-          "have.length",
-          matchingMovies.length
-        );
-        // Do a second test for certainty!
-        searchString = "o";
-        matchingMovies = filterByTitle(movies, searchString);
-        cy.get("#filled-search").clear().type(searchString); // Enter m in text box
-        cy.get(".MuiCardHeader-content").should(
-          "have.length",
-          matchingMovies.length
-        );
-      });
+     it("should only display movies with m in the title", () => {
+       let searchString = "m";
+       let matchingMovies = filterByTitle(movies, searchString);
+       cy.get("#filled-search").clear().type(searchString); // Enter m in text box
+       cy.get(".MuiCardHeader-content").should(
+         "have.length",
+         matchingMovies.length
+       );
+       cy.get(".MuiCardHeader-content").each(($card, index) => {
+         cy.wrap($card).find("p").contains(matchingMovies[index].title);
+       });
+     })
+    
+     it("should only display movies with o in the title", () => {
+       let searchString = "o";
+       let matchingMovies = filterByTitle(movies, searchString);
+       cy.get("#filled-search").clear().type(searchString); // Enter m in text box
+       cy.get(".MuiCardHeader-content").should(
+         "have.length",
+         matchingMovies.length
+       );
+       cy.get(".MuiCardHeader-content").each(($card, index) => {
+         cy.wrap($card).find("p").contains(matchingMovies[index].title);
+       });
      });
-  });
-});
+
+     it("There are no matching movies", () => {
+        let searchString = "xyz";
+        let matchingMovies = filterByTitle(movies, searchString);
+        cy.get("#filled-search").clear().type(searchString); // Enter xyz in text box
+        cy.get(".MuiCardHeader-content").should(
+          "have.length",
+          matchingMovies.length
+    
+        );
+      })
+   })
+ 
+
+   describe("By movie genre" ,() => {
+     // More later
+   })
+ })
+})
