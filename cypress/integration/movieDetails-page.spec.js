@@ -36,5 +36,8 @@ describe("Movie Details Page", () => {
           });
         });
     });
+    it("Movies Posters should be displayed", () => {
+      cy.get("img").should('have.css', 'text-align', 'left')
+    });
     });
   });
