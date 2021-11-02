@@ -87,6 +87,7 @@ describe("Home Page ", () => {
        );
        cy.get(".MuiCardHeader-content").each(($card, index) => {
          cy.wrap($card).find("p").contains(matchingMovies[index].title);
+         
        });
      });
      describe("By movie title, while in genre", () => {
@@ -100,12 +101,29 @@ describe("Home Page ", () => {
           cy.get(".MuiCardHeader-content").should(
             "have.length",
             matchingMovies.length
+
           );
+
           cy.get(".MuiCardHeader-content").each(($card, index) => {
             cy.wrap($card).find("p").contains(matchingMovies[index].title);
+          
+
           });
         });
         })
+
+        describe("Select a favourite movie", () => {
+            it("A movie should be selcted as favourite", () => {
+                cy.get("button[aria-label='add to favorites']").eq(1).click();
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();
+            });
+
+            })
+    
+    
+
+
+        
    });
  });
 });
