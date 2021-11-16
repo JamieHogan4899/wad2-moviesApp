@@ -39,7 +39,7 @@ e2etest:
     - echo "Run tests in headless mode"
     - npm run start:ci
 
-    build_jobX:
+build_jobX:
   stage: build
   only:
     - develop
