@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "build-storybook": "build-storybook -s public",
     "start:ci": "start-server-and-test 'http-server ./build  -p 3000 -P http://localhost:3000?' 3000 'cypress run --browser chrome '",
-    "server": "http-server ./build --port 3000 -P http://localhost:3000"
+    "server": "http-server ./build --port 3000 -P http://localhost:3000?"
   },
   "eslintConfig": {
     "extends": "react-app",
