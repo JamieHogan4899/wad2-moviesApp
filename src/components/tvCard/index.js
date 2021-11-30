@@ -85,9 +85,7 @@ const useStyles = makeStyles({
             
     
       
-              <Button variant="outlined" size="medium" color="primary">
-                More Info ...
-              </Button>
+           
             </Link>
     
     

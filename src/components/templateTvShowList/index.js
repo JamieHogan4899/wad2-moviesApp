@@ -19,7 +19,7 @@ function tvShowPageTemplate({ shows, action }) {
       </Grid>
       <Grid item container spacing={5}>
         
-        <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>
+        <Grid key="find" item xs={12} sm={0} md={0} lg={0} xl={0}>
         
           
         </Grid>
