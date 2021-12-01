@@ -56,10 +56,13 @@ describe("trending Tests ", () => {
     it("Navagation Between Home Page and Trending Page", () => {
       cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();  //use header to go to trending
       cy.get("h3").contains("Trending Movies");  //check page is trending
+
       cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();  //go back home using header
       cy.get("h3").contains("Discover Movies"); //check my page is home
+
       cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
       cy.get("h3").contains("Trending Movies");; //check page is trending 
+
       cy.get("button[aria-label='go forward'").click();  //use forword button to go back home
       cy.get("h3").contains("Discover Movies");;  //check im back home
     });
@@ -80,6 +83,20 @@ describe("trending Tests ", () => {
 });
 });
 
-describe("Favorite Testing", () => {     
+describe("Favorite Testing", () => {    
+  it("Adding a favourite from trending page", () => { 
+
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();  //use header to go to trending
+    cy.get("h3").contains("Trending Movies");  //check page is trending
+
+    cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click(); //check favourites page to see if its there 
+});
+it("Unfavouriting a movie, favourited in trending page", () => { 
+
+
+
 
 });
+});
+

@@ -116,6 +116,12 @@ describe("Home Page ", () => {
             it("A movie should be selcted as favourite", () => {
                 cy.get("button[aria-label='add to favorites']").eq(1).click();
                 cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
+
+
+
+
+
+                
             });
 
             })
