@@ -94,8 +94,11 @@ describe("Favorite Testing", () => {
 });
 it("Unfavouriting a movie, favourited in trending page", () => { 
 
+  cy.get(".MuiCardActions-root").eq(0).contains("More Info").click(); //Click on card Favourtie more info button
+  cy.url().should("include", `/movies/${trending[0].id}`); //check url is new one 
 
-
+  cy.get("button[aria-label='go back'").click();  //use back button to go back to favourites page
+  cy.get("button[aria-label='remove from favorites']").eq(0).click();
 
 });
 });
