@@ -129,8 +129,18 @@ describe("Filtering Tests", () => {
   it("search for movies with the letter A", () => { 
     let searchString = "b"; 
     cy.get("#filled-search").clear().type(searchString); // Enter b in text box
-
-
-
   });
+
+  it("testing filterting and seaching together", () => { 
+    const selectedGenreText = "Comedy";
+    let searchString = "r"; 
+
+    cy.get("#genre-select").click(); //click genre drop down menu 
+    cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+
+    cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+    
+
+
+});
 });
