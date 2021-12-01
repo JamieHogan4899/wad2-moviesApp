@@ -75,7 +75,7 @@ describe("trending Tests ", () => {
       cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();  //use header to go to trending
       cy.get("h3").contains("Favorite Movies");  //check page is favourites 
 
-      cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
+      cy.get("button[aria-label='go back'").click();  //use back button to go back to more info
       cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
 });
 });
