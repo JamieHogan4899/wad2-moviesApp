@@ -124,6 +124,12 @@ describe("Filtering Tests", () => {
 
     cy.get("#genre-select").click(); //click genre drop down menu 
     cy.get("li").contains(backToAll).click();  //use selectedGenreText to select All
+  });
+
+  it("search for movies with the letter A", () => { 
+    let searchString = "b"; 
+    cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+
 
 
   });
