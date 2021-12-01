@@ -59,8 +59,6 @@ describe("trending Tests ", () => {
 
 
     it("Navagation Between Home Page and Trending Page", () => {
-    
-
       cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();  //go back home using header
       cy.get("h3").contains("Discover Movies"); //check my page is home
 
@@ -74,12 +72,15 @@ describe("trending Tests ", () => {
 
     it("Navagation between more info and favourites using trending", () => {
    
+      cy.wait(100)   //wait to go back to trending page
 
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click(); //Click on card 1 more info button 
       cy.url().should("include", `/movies/${trending[0].id}`); //check url is new one 
 
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();  //use header to go to trending
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();  //use header to go to favourties 
       cy.get("h3").contains("Favorite Movies");  //check page is favourites 
+
+      cy.wait(75)   //wait for page to load 
 
       cy.get("button[aria-label='go back'").click();  //use back button to go back to more info
       cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
@@ -113,7 +114,16 @@ describe("Filtering Tests", () => {
   });
   
   it("Check to see if user can change genre on trending page", () => { 
+    const selectedGenreText = "Comedy";
+    const backToAll = "All";
 
+    cy.get("#genre-select").click(); //click genre drop down menu 
+    cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+    
+    cy.wait(250);
+
+    cy.get("#genre-select").click(); //click genre drop down menu 
+    cy.get("li").contains(backToAll).click();  //use selectedGenreText to select All
 
 
   });
