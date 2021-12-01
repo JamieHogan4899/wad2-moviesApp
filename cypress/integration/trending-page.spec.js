@@ -24,13 +24,35 @@ describe("Home Page ", () => {
     cy.visit("/movies/Trending")
   });
 
-  describe("Base tests", () => {
-    describe("Base test", () => {
+ 
+    describe("Page test", () => {
         it("displays page header", () => {
           cy.get("h3").contains("Trending Movies");
           cy.get("h1").contains("Filter the movies");
         });
       });
+
+
+      
+});
+
+  describe("Navagation Tests", () => {     
+    it("Navagation Between Home Page and Trending Page", () => {
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();
+      cy.get("h3").contains("Trending Movies");
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();
+      cy.get("h3").contains("Discover Movies");
+      cy.get("button[aria-label='go back'").click();
+      cy.get("h3").contains("Trending Movies");;
+      cy.get("button[aria-label='go forward'").click();
+      cy.get("h3").contains("Discover Movies");;
+
+     
+     
+
+       
+  
+    });
+
   });
 
-});
