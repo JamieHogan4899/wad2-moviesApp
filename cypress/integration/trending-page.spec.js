@@ -52,10 +52,14 @@ describe("trending Tests ", () => {
         });
       });
 
+        
+  beforeEach(() => {
+    cy.visit("/movies/Trending")
+  });
+
 
     it("Navagation Between Home Page and Trending Page", () => {
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();  //use header to go to trending
-      cy.get("h3").contains("Trending Movies");  //check page is trending
+    
 
       cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();  //go back home using header
       cy.get("h3").contains("Discover Movies"); //check my page is home
@@ -69,8 +73,7 @@ describe("trending Tests ", () => {
 
 
     it("Navagation between more info and favourites using trending", () => {
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();  //use header to go to trending
-      cy.get("h3").contains("Trending Movies");  //check page is trending
+   
 
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click(); //Click on card 1 more info button 
       cy.url().should("include", `/movies/${trending[0].id}`); //check url is new one 
@@ -98,8 +101,20 @@ it("Unfavouriting a movie, favourited in trending page", () => {
   cy.url().should("include", `/movies/${trending[0].id}`); //check url is new one 
 
   cy.get("button[aria-label='go back'").click();  //use back button to go back to favourites page
-  cy.get("button[aria-label='remove from favorites']").eq(0).click();
+  cy.get("button[aria-label='remove from favorites']").eq(0).click(); //click the unfavourite button
 
 });
 });
 
+describe("Filtering Tests", () => { 
+  
+  beforeEach(() => {
+    cy.visit("/movies/Trending")
+  });
+  
+  it("Check to see if user can change genre on trending page", () => { 
+
+
+
+  });
+});
