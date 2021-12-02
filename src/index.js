@@ -14,6 +14,7 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TrendingPage from "./pages/TopRatedMoviesPage";
 import TvShowsPage from "./pages/tvShowsPage";
 import tvDetailsPage from "./pages/tvDetailsPage";
+import tvReviewPage from "./pages/tvReviewPage";
 
 
 const queryClient = new QueryClient({
@@ -42,7 +43,8 @@ const App = () => {
         <Route exact path="/movies/:id" component={MoviePage} /> 
         <Route exact path="/shows/:id" component={tvDetailsPage} /> 
         <Route exact path="/" component={HomePage} />
-        <Route ecpath="/reviews/:id" component={MovieReviewPage} />
+        <Route path="/reviews/:id" component={MovieReviewPage} />
+        <Route path="/tvreviews/:id" component={tvReviewPage} />
         <Redirect from="*" to="/" />
         </Switch>
         </MoviesContextProvider>
