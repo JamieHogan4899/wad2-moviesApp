@@ -6,6 +6,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import { getShowImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
+import Header from "../headerMovieList";
 
 
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  const TemplateTvShowPage = ({ show, children }) => {
+  const TemplateTvShowPage = ({ show, children, title }) => {
     const classes = useStyles();
     const { data , error, isLoading, isError } = useQuery(
         ["TVImages", { id: show.id }],
@@ -40,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
 
     return (
         <>
-          {/* //#<MovieHeader movie={movie} />
-     */}
+                 {<Header title={title} /> }
+              
           <Grid container spacing={5} style={{ padding: "15px" }}>
             <Grid item xs={3}>
               <div className={classes.root}>
