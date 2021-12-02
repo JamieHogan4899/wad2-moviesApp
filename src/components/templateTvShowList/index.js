@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import ShowList from "../showList";
 import Header from "../headerMovieList";
+import FilterCard from "../filterTvShowsCard";
+import { makeStyles } from "@material-ui/core/styles";
 
 
+const useStyles = makeStyles({
+  root: {
+    padding: "20px",
+  },
+});
 
-function tvShowPageTemplate({ shows, action, title 
- }) {
+
+function TvShowPageTemplate({ shows, title, action }) {
+  const classes = useStyles();
+  const [nameFilter, setNameFilter] = useState("");
+  const [genreFilter, setGenreFilter] = useState("0");
+  const genreId = Number(genreFilter);
   
 
+
+  let displayedShows = shows
+  .filter((s) => {
+    return s.title !== -1;
+  })
+  .filter((s) => {
+    return genreId > 0 ? s.genre_ids.includes(genreId) : true;
+  });
+    
+ 
+  const handleChange = (type, value) => {
+    if (type === "name") setNameFilter(value);
+    else setGenreFilter(value);
+  };
+
+
   return (
-    <Grid container>
+    <Grid container className={classes.root}>
       <Grid item xs={12}>
       {<Header title={title} /> }
       </Grid>
@@ -18,12 +45,19 @@ function tvShowPageTemplate({ shows, action, title
         
       <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>
         
+      <FilterCard
+            onUserInput={handleChange}
+            titleFilter={nameFilter}
+            genreFilter={genreFilter}
+          />
           
         </Grid>
-        <ShowList action={action} shows={shows}></ShowList>
+        <ShowList action={action} shows={displayedShows}></ShowList>
+    
 
       </Grid>
     </Grid>
   );
-}
-export default tvShowPageTemplate;
+};
+
+export default TvShowPageTemplate;
