@@ -32,6 +32,7 @@ describe("trending Tests ", () => {
           cy.get("h1").contains("Filter the movies");
         });
       });
+      
 
 
       
@@ -131,7 +132,7 @@ describe("Filtering Tests", () => {
     cy.get("#filled-search").clear().type(searchString); // Enter b in text box
   });
 
-  it("testing filterting and seaching together", () => { 
+  it("testing filterting and searching together", () => { 
     const selectedGenreText = "Comedy";
     let searchString = "r"; 
 
@@ -140,7 +141,5 @@ describe("Filtering Tests", () => {
 
     cy.get("#filled-search").clear().type(searchString); // Enter b in text box
     
-
-
 });
 });

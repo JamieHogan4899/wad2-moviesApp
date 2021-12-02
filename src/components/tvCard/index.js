@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     },
   });
 
-  export default function TvCard({ show, action }) {
+  export default function TvCard({ show }) {
     const classes = useStyles();
     //const { favorites } = useContext(MoviesContext);
 
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
                 <FavoriteIcon />
               </Avatar>
             ) : null
-          }c
+          }
           title={
             <Typography variant="h5" component="p">
               {show.name}{" "}
@@ -78,14 +78,14 @@ const useStyles = makeStyles({
        
        
           <CardActions disableSpacing>
-           {/* {action (show)} */}
-    
+
              <Link to={`/shows/${show.id}`}> 
             
-            
-    
-      
-           
+        
+    { <Button variant="outlined" size="medium" color="primary" >
+          More Info ...
+        </Button>
+       }
             </Link>
     
     

@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getTvShows} from '../api/tmdb-api'
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 import PageTemplate from "../components/templateTvShowList";
 
 
