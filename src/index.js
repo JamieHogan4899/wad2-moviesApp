@@ -42,7 +42,7 @@ const App = () => {
         <Route exact path="/movies/:id" component={MoviePage} /> 
         <Route exact path="/shows/:id" component={tvDetailsPage} /> 
         <Route exact path="/" component={HomePage} />
-        <Route path="/reviews/:id" component={MovieReviewPage} />
+        <Route ecpath="/reviews/:id" component={MovieReviewPage} />
         <Redirect from="*" to="/" />
         </Switch>
         </MoviesContextProvider>
