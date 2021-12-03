@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext  } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -15,7 +15,7 @@ import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-
+import { TvContext } from "../../contexts/tvContext";
 
 
 const useStyles = makeStyles({
@@ -26,29 +26,40 @@ const useStyles = makeStyles({
     },
   });
 
-  export default function TvCard({ show }) {
+  export default function TvCard({ show }) {  
     const classes = useStyles();
-    //const { favorites } = useContext(MoviesContext);
 
+
+    // const { favorites } = useContext(TvContext);
+
+    // if (favorites.find((id) => id === show.id)) {
+    //   show.favorite = true;
+    // } else {
+    //   show.favorite = false
+    // }
+  
 
     return (
-        <Card className={classes.card}>
-         
-         <CardHeader
-          className={classes.header}
-          avatar={
-            show.favorite ? (
-              <Avatar className={classes.avatar}>
-                <FavoriteIcon />
-              </Avatar>
-            ) : null
-          }
-          title={
-            <Typography variant="h5" component="p">
-              {show.name}{" "}
-            </Typography>
-          }
-        />
+      <Card className={classes.card}>
+     
+     <CardHeader
+      className={classes.header}
+      avatar={
+        show.favorite ? (
+          <Avatar className={classes.avatar}>
+            <FavoriteIcon />
+           </Avatar>
+         ) : null
+       }
+       title={
+         <Typography variant="h5" component="p">
+           {show.name}{" "}
+         </Typography>
+       }
+     />
+
+
+        
     
     
           <CardMedia

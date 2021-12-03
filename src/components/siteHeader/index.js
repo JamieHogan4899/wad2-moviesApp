@@ -25,7 +25,8 @@ const SiteHeader = ( { history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));  //true of false
+  
   var setLogin = false;
   
 
@@ -35,7 +36,10 @@ const SiteHeader = ( { history }) => {
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Trending Movies", path: "/movies/Trending" },
     { label: "TV Shows", path: "/shows/tvShowsPage" },
+    { label: "Favourite Tv Shows", path: "/shows/TvShowPage" },
+
   ];
+
 
   const handleMenuSelect = (pageURL) => {
     history.push(pageURL);
@@ -46,17 +50,10 @@ const SiteHeader = ( { history }) => {
   };
 
   const handleLogin =   () => {
-    setLogin = true;
+    setLogin = !setLogin;
+    console.log( "login is " + setLogin)
   }
   
-
- 
-
-
-  
-
- 
-
   return (
     <>
       <AppBar position="fixed" color="secondary">
@@ -71,19 +68,19 @@ const SiteHeader = ( { history }) => {
             All you ever wanted to know about Movies!
           </Typography>
 
-         
           <Button 
            color="inherit"
            onClick={() => handleLogin()} >
                   Login
                   </Button>
        
-                  <Button
-                  onClick={() => console.log(setLogin)} 
-                  >
-                  Check 
-                  </Button>
-
+                  {setLogin ? (
+                  <>
+                  <Button> True </Button>
+                  </>
+                  ): ( <>
+                    <Button> False </Button>
+                    </>)} 
 
             {isMobile ? (
               <>
