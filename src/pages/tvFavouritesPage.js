@@ -7,19 +7,19 @@ import Spinner from '../components/spinner';
 import RemoveFromTvFavorites from "../components/cardIcons/removeFromTvFavourites";
 
 const FavoriteShowsPage = () => {
-  const {favorites: showIds } = useContext(MoviesContext);
+  const {tvFavorites: showsIds } = useContext(MoviesContext);
 
   // Create an array of queries and run in parallel.
   const favoriteShowQueries = useQueries(
-    showIds.map((showId) => {
+    showsIds.map((showsId) => {
       return {
-        queryKey: ["show", { id: showId }],
+        queryKey: ["shows", { id: showsId }],
         queryFn: getShow,
       };
     })
   );
   // Check if any of the parallel queries is still loading.
-  const isLoading = favoriteShowQueries.find((m) => m.isLoading === true);
+  const isLoading = favoriteShowQueries.find((s) => s.isLoading === true);
 
   if (isLoading) {
     return <Spinner />;

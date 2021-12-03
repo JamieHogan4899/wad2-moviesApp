@@ -23,7 +23,7 @@
     };
 
     const removeFromTvFavorites = (show) => {
-      setTvFavorites( favorites.filter(
+      setTvFavorites( tvFavorites.filter(
         (sId) => sId !== show.id
       ) )
     };
@@ -43,6 +43,7 @@
       <MoviesContext.Provider
         value={{
           favorites,
+          tvFavorites,
           addToFavorites,
           removeFromFavorites,
           addReview,

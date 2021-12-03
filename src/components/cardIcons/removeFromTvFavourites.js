@@ -6,8 +6,8 @@ import { MoviesContext } from "../../contexts/moviesContext";
 const RemoveFromTvFavoritesIcon = ({ show }) => {
   const context = useContext(MoviesContext);
 
-  const handleRemoveFromTvFavorites = (e) => {
-    e.preventDefault();
+  const handleRemoveFromTvFavorites = (s) => {
+    s.preventDefault();
     context.removeFromTvFavorites(show);
   };
   return (
