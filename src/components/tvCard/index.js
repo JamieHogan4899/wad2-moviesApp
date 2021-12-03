@@ -15,7 +15,7 @@ import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-import { TvContext } from "../../contexts/tvContext";
+import { MoviesContext } from "../../contexts/moviesContext";
 
 
 const useStyles = makeStyles({
@@ -26,17 +26,17 @@ const useStyles = makeStyles({
     },
   });
 
-  export default function TvCard({ show }) {  
+  export default function TvCard({ show, action }) {  
     const classes = useStyles();
 
 
-    // const { favorites } = useContext(TvContext);
+    const { tvFavorites } = useContext(MoviesContext);
 
-    // if (favorites.find((id) => id === show.id)) {
-    //   show.favorite = true;
-    // } else {
-    //   show.favorite = false
-    // }
+    if (tvFavorites.find((id) => id === show.id)) {
+      show.favorite = true;
+    } else {
+      show.favorite = false
+    }
   
 
     return (
@@ -89,9 +89,9 @@ const useStyles = makeStyles({
        
        
           <CardActions disableSpacing>
-
+              {action (show)}
              <Link to={`/shows/${show.id}`}> 
-            
+        
         
     { <Button variant="outlined" size="medium" color="primary" >
           More Info ...
