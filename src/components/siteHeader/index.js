@@ -26,6 +26,8 @@ const SiteHeader = ( { history }) => {
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  var setLogin = false;
+  
 
   const menuOptions = [
     { label: "Home", path: "/" },
@@ -43,6 +45,18 @@ const SiteHeader = ( { history }) => {
     setAnchorEl(event.currentTarget);
   };
 
+  const handleLogin =   () => {
+    setLogin = true;
+  }
+  
+
+ 
+
+
+  
+
+ 
+
   return (
     <>
       <AppBar position="fixed" color="secondary">
@@ -50,9 +64,27 @@ const SiteHeader = ( { history }) => {
           <Typography variant="h4" className={classes.title}>
             TMDB Client
           </Typography>
+
+          
+
           <Typography variant="h6" className={classes.title}>
             All you ever wanted to know about Movies!
           </Typography>
+
+         
+          <Button 
+           color="inherit"
+           onClick={() => handleLogin()} >
+                  Login
+                  </Button>
+       
+                  <Button
+                  onClick={() => console.log(setLogin)} 
+                  >
+                  Check 
+                  </Button>
+
+
             {isMobile ? (
               <>
                 <IconButton
@@ -63,7 +95,11 @@ const SiteHeader = ( { history }) => {
                   color="inherit"
                 >
                   <MenuIcon />
+
+                  
                 </IconButton>
+              
+
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
