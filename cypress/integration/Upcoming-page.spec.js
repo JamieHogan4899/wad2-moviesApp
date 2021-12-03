@@ -74,6 +74,42 @@ const filterByGenre = (movieList, genreId) =>
       
       cy.get("header").find(".MuiToolbar-root").find("button").eq(4).click();  //use header to go to Upcoming
       cy.get("h3").contains("Upcoming Movies");  //check page is favourites 
+});
+});
 
-});
-});
+describe("Filtering Tests", () => { 
+  
+    beforeEach(() => {
+      cy.visit("/movies/Upcoming")
+    });
+
+    it("Check to see if user can change genre on upcoming page", () => { 
+        const selectedGenreText = "Comedy";
+        const backToAll = "All";
+
+    cy.get("#genre-select").click(); //click genre drop down menu 
+    cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+
+      
+    cy.wait(400);
+
+    cy.get("#genre-select").click(); //click genre drop down menu 
+    cy.get("li").contains(backToAll).click();  //use selectedGenreText to select All
+    });
+
+    it("search for movies with the letter A", () => { 
+        let searchString = "b"; 
+        cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+      });
+    
+      it("testing filterting and searching together", () => { 
+        const selectedGenreText = "Comedy";
+        let searchString = "r"; 
+    
+        cy.get("#genre-select").click(); //click genre drop down menu 
+        cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+    
+        cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+        
+    });
+    });
