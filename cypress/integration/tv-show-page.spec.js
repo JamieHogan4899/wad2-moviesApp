@@ -118,20 +118,20 @@ const filterByGenre = (showList, genreId) =>
           cy.get("#filled-search").clear().type(searchString); // Enter b in text box
           });
 
-          // it("testing filterting and searching together", () => { 
-          // const selectedGenreText = "Comedy";
-          // let searchString = "r"; 
+          it("testing filterting and searching together", () => { 
+          const selectedGenreText = "Comedy";
+          let searchString = "r"; 
 
-          // cy.get("#Tvgenre-select").click(); //click genre drop down menu 
-          // cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+          cy.get("#Tvgenre-select").click(); //click genre drop down menu 
+          cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
 
-          // cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+          cy.get("#filled-search").clear().type(searchString); // Enter b in text box
   
 });
 
 });
 
-
+});
 
 
 
