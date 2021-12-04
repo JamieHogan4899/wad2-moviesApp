@@ -54,19 +54,22 @@ const filterByGenre = (showList, genreId) =>
           });
 
           it("Navagation Between Home Page and Tv Show Page", () => {
+            cy.wait(1500);
+
             cy.get("header").find(".MuiToolbar-root").find("button").eq(2).click();  //go back home using header
             cy.get("h3").contains("Discover Movies"); //check my page is home
 
             cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
-            cy.get("h3").contains("TV Shows");; //check page is Tv Shows Page
+            cy.get("h3").contains("TV Shows"); //check page is Tv Shows Page
+            cy.wait(1500);
 
             cy.get("button[aria-label='go forward'").click();  //use forword button to go back home
-            cy.get("h3").contains("Discover Movies");;  //check im back home
+            cy.get("h3").contains("Discover Movies");  //check im back home
 });
 
             it("Testing to check the more info button works and can navigate back to TvShow page", () => {
 
-            cy.wait(100)   //wait to go back to Tv show page    
+            cy.wait(500)   //wait to go back to Tv show page    
 
             cy.get(".MuiCardActions-root").eq(0).contains("More Info").click(); //Click on card 1 more info button 
             cy.url().should("include", `/shows/${tvShows[0].id}`); //check url is new one 
@@ -88,7 +91,35 @@ const filterByGenre = (showList, genreId) =>
 
 });
 });
+
+          describe("Filtering Tests", () => { 
+  
+          beforeEach(() => {
+          cy.visit("/shows/tvShowsPage")
+           });
+
+           
+          it("Check to see if user can change genre for Tv Shows", () => { 
+          const selectedGenreText = "Comedy";
+          const backToAll = "All";
+
+          cy.get("#Tvgenre-select").click(); //click genre drop down menu 
+          cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+      
+            
+          cy.wait(400);
+      
+          cy.get("#Tvgenre-select").click(); //click genre drop down menu 
+          cy.get("li").contains(backToAll).click();  //use selectedGenreText to select All
+
+
+
 });
+
+});
+
+});
+
 
 
 

@@ -11,6 +11,7 @@ import Header from "../headerMovieList";
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
