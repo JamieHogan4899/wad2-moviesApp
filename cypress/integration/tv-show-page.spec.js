@@ -105,20 +105,33 @@ const filterByGenre = (showList, genreId) =>
 
           cy.get("#Tvgenre-select").click(); //click genre drop down menu 
           cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
-      
-            
+       
           cy.wait(400);
       
           cy.get("#Tvgenre-select").click(); //click genre drop down menu 
           cy.get("li").contains(backToAll).click();  //use selectedGenreText to select All
 
+});
 
+          it("search for shows with the letter A", () => { 
+          let searchString = "b"; 
+          cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+          });
 
+          // it("testing filterting and searching together", () => { 
+          // const selectedGenreText = "Comedy";
+          // let searchString = "r"; 
+
+          // cy.get("#Tvgenre-select").click(); //click genre drop down menu 
+          // cy.get("li").contains(selectedGenreText).click();  //use selectedGenreText to select comedy
+
+          // cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+  
 });
 
 });
 
-});
+
 
 
 
