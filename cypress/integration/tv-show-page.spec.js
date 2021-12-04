@@ -72,8 +72,19 @@ const filterByGenre = (showList, genreId) =>
             cy.url().should("include", `/shows/${tvShows[0].id}`); //check url is new one 
 
             
-            cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click();  //use header to go to Upcoming
+            cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click();  //use header to go to TvShows Page
             cy.get("h3").contains("TV Shows");  //check page is favourites 
+
+});
+            it("Testing to check can user see reviews", () => {
+
+            cy.get(".MuiCardActions-root").eq(0).contains("More Info").click(); //Click on card 1 more info button 
+            cy.url().should("include", `/shows/${tvShows[0].id}`); //check url is new one 
+
+            cy.wait(2500);
+            cy.get(".MuiButtonBase-root").eq(10).contains("Reviews").click(); //Get the review button and click 
+
+            cy.get(".MuiTableCell-root").contains("Author"); //Check Review Drop Menu pops down
 
 });
 });
