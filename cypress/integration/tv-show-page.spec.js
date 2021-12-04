@@ -131,9 +131,28 @@ const filterByGenre = (showList, genreId) =>
 
 });
 
+
+            describe("Tv Favorite Testing", () => {    
+              it("Add a Favourite Tv Show", () => { 
+              cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click();  //use header to go to Tv Shows
+              cy.get("h3").contains("TV Shows");  //check page 
+
+              cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
+              cy.get("header").find(".MuiToolbar-root").find("button").eq(7).click(); //check favourites page to see if its there 
+
+              cy.get(".MuiCardActions-root").eq(0)
+            });
+
+            // it("Unfavouriting a show", () => { 
+
+               
+            
+            //   cy.get("button[aria-label='go back'").click();  //use back button to go back to favourites page
+            //   cy.get("button[aria-label='remove from favorites']").eq(0).click(); //click the unfavourite button
+          
+
+
 });
-
-
-
-
+});
+});
 

@@ -96,6 +96,8 @@ describe("Favorite Testing", () => {
 
     cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
     cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click(); //check favourites page to see if its there 
+    cy.get(".MuiCardActions-root").eq(0)
+
 });
 it("Unfavouriting a movie, favourited in trending page", () => { 
 
@@ -104,6 +106,8 @@ it("Unfavouriting a movie, favourited in trending page", () => {
 
   cy.get("button[aria-label='go back'").click();  //use back button to go back to favourites page
   cy.get("button[aria-label='remove from favorites']").eq(0).click(); //click the unfavourite button
+
+  
 
 });
 });
