@@ -152,6 +152,25 @@ const filterByGenre = (showList, genreId) =>
                
               cy.get("button[aria-label='remove from favorites']").eq(0).click(); //click the unfavourite button
 });
+
+              it("Favourite Tv Shows Filters (searching)", () => {      
+                let searchString = "e"; 
+                
+                cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+  
+                cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
+
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(7).click(); //tv favourites Page
+                cy.wait(400)
+             
+                cy.get("#filled-search").clear().type(searchString); // Enter b in text box
+                cy.get(".MuiCardActions-root").eq(0)
+
+});
+
+
+
+
 });
 });
 
