@@ -73,12 +73,7 @@ const SiteHeader = ( { history }) => {
             All you ever wanted to know about Movies!
           </Typography>
 
-        
-
-       
-                  <button onClick={handleLogin} color="inherit" >  {buttonText}
-
-
+                  <button onClick={handleLogin} color="inherit">  {buttonText}
                   </button>
                   
 
