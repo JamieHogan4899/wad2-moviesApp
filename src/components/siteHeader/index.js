@@ -76,7 +76,7 @@ const SiteHeader = ( { history }) => {
         
 
        
-                  <button onClick={handleLogin} color="inherit">  {buttonText}
+                  <button onClick={handleLogin} color="inherit" >  {buttonText}
 
 
                   </button>
