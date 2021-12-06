@@ -25,14 +25,22 @@ const SiteHeader = ( { history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));  //true of false
+  const [login, setLogin] = useState(false);
+  
+  //var setLogin = false;
+  
 
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Option 4", path: "/" },
+    { label: "Trending Movies", path: "/movies/Trending" },
+    { label: "TV Shows", path: "/shows/tvShowsPage" },
+    { label: "Favourite Tv Shows", path: "/shows/TvShowFavPage" },
+
   ];
+
 
   const handleMenuSelect = (pageURL) => {
     history.push(pageURL);
@@ -42,6 +50,15 @@ const SiteHeader = ( { history }) => {
     setAnchorEl(event.currentTarget);
   };
 
+  const handleLogin =   () => {
+   setLogin(!login);
+    console.log( "login is " + setLogin)
+  }
+
+  var buttonText ="Login"
+  if (login) { buttonText = "Logout" }
+  
+  
   return (
     <>
       <AppBar position="fixed" color="secondary">
@@ -49,9 +66,22 @@ const SiteHeader = ( { history }) => {
           <Typography variant="h4" className={classes.title}>
             TMDB Client
           </Typography>
+
+          
+
           <Typography variant="h6" className={classes.title}>
             All you ever wanted to know about Movies!
           </Typography>
+
+        
+
+       
+                  <button onClick={handleLogin} color="inherit" >  {buttonText}
+
+
+                  </button>
+                  
+
             {isMobile ? (
               <>
                 <IconButton
@@ -62,7 +92,11 @@ const SiteHeader = ( { history }) => {
                   color="inherit"
                 >
                   <MenuIcon />
+
+                  
                 </IconButton>
+              
+
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
