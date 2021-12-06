@@ -11,7 +11,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg';
-import { getGenres } from "../../api/tmdb-api";
+import { getTvGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
 
@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilterMoviesCard(props) {
+export default function FilterTvShowsCard(props) {
   const classes = useStyles();
-  const { data, error, isLoading, isError } = useQuery("genres", getGenres);
+  const { data, error, isLoading, isError} = useQuery("tvGenres", getTvGenres);
 
   if (isLoading) {
     return <Spinner />;
@@ -47,6 +47,7 @@ export default function FilterMoviesCard(props) {
   
   //got help with line 45
   //https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e
+
 
   const handleChange = (e, type, value) => {
     e.preventDefault();
@@ -67,22 +68,22 @@ export default function FilterMoviesCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the movies.
+          Filter the Shows.
         </Typography>
         <TextField
       className={classes.formControl}
       id="filled-search"
-      label="Search field"
+      label="Search a shows name"
       type="search"
       value={props.titleFilter}
       variant="filled"
       onChange={handleTextChange}
     />
         <FormControl className={classes.formControl}>
-          <InputLabel id="genre-label">Genre</InputLabel>
+          <InputLabel id="Tvgenre-label">Genre</InputLabel>
            <Select
-      labelId="genre-label"
-      id="genre-select"
+      labelId="Tvgenre-label"
+      id="Tvgenre-select"
       value={props.genreFilter}
       onChange={handleGenreChange}
     >
@@ -104,7 +105,7 @@ export default function FilterMoviesCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the movies.
+          Filter Shows.
           <br />
         </Typography>
       </CardContent>
