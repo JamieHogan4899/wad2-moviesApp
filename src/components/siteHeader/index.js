@@ -26,8 +26,9 @@ const SiteHeader = ( { history }) => {
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));  //true of false
+  const [login, setLogin] = useState(false);
   
-  var setLogin = false;
+  //var setLogin = false;
   
 
   const menuOptions = [
@@ -50,9 +51,13 @@ const SiteHeader = ( { history }) => {
   };
 
   const handleLogin =   () => {
-    setLogin = !setLogin;
+   setLogin(!login);
     console.log( "login is " + setLogin)
   }
+
+  var buttonText ="Login"
+  if (login) { buttonText = "Logout" }
+  
   
   return (
     <>
@@ -68,19 +73,14 @@ const SiteHeader = ( { history }) => {
             All you ever wanted to know about Movies!
           </Typography>
 
-          <Button 
-           color="inherit"
-           onClick={() => handleLogin()} >
-                  Login
-                  </Button>
+        
+
        
-                  {setLogin ? (
-                  <>
-                  <Button> True </Button>
-                  </>
-                  ): ( <>
-                    <Button> False </Button>
-                    </>)} 
+                  <button onClick={handleLogin} color="inherit">  {buttonText}
+
+
+                  </button>
+                  
 
             {isMobile ? (
               <>
