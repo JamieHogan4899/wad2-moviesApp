@@ -49,14 +49,11 @@ const filterByGenre = (showList, genreId) =>
 
 
           
-          beforeEach(() => {
-            cy.visit("/shows/tvShowsPage")
-          });
-
+        
           it("Navagation Between Home Page and Tv Show Page", () => {
             cy.wait(1500);
 
-            cy.get("header").find(".MuiToolbar-root").find("button").eq(2).click();  //go back home using header
+            cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();  //go back home using header
             cy.get("h3").contains("Discover Movies"); //check my page is home
 
             cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
@@ -75,7 +72,7 @@ const filterByGenre = (showList, genreId) =>
             cy.url().should("include", `/shows/${tvShows[0].id}`); //check url is new one 
 
             
-            cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click();  //use header to go to TvShows Page
+            cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();  //use header to go to TvShows Page
             cy.get("h3").contains("TV Shows");  //check page is favourites 
 
 });
@@ -85,7 +82,7 @@ const filterByGenre = (showList, genreId) =>
             cy.url().should("include", `/shows/${tvShows[0].id}`); //check url is new one 
 
             cy.wait(2500);
-            cy.get(".MuiButtonBase-root").eq(10).contains("Reviews").click(); //Get the review button and click 
+            cy.get(".MuiButtonBase-root").eq(8).contains("Reviews").click(); //Get the review button and click 
 
             cy.get(".MuiTableCell-root").contains("Author"); //Check Review Drop Menu pops down
 
@@ -134,21 +131,21 @@ const filterByGenre = (showList, genreId) =>
 
             describe("Tv Favorite Testing", () => {    
               it("Add a Favourite Tv Show", () => { 
-              cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click();  //use header to go to Tv Shows
+              cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();  //use header to go to Tv Shows
               cy.get("h3").contains("TV Shows");  //check page 
 
               cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
-              cy.get("header").find(".MuiToolbar-root").find("button").eq(7).click(); //check favourites page to see if its there 
+              cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click(); //check favourites page to see if its there 
 
               cy.get(".MuiCardActions-root").eq(0)
             });
 
             it("Unfavouriting a show", () => { 
-              cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click();  //use header to go to Tv Shows
+              cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();  //use header to go to Tv Shows
               cy.get("h3").contains("TV Shows");  //check page 
 
               cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
-              cy.get("header").find(".MuiToolbar-root").find("button").eq(7).click(); //tv favourites Page
+              cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click(); //tv favourites Page
                
               cy.get("button[aria-label='remove from favorites']").eq(0).click(); //click the unfavourite button
 });
@@ -160,7 +157,7 @@ const filterByGenre = (showList, genreId) =>
   
                 cy.get("button[aria-label='add to favorites']").eq(0).click();  //get 1st card favourite button and click it 
 
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(7).click(); //tv favourites Page
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(6).click(); //tv favourites Page
                 cy.wait(400)
              
                 cy.get("#filled-search").clear().type(searchString); // Enter b in text box
@@ -171,6 +168,16 @@ const filterByGenre = (showList, genreId) =>
 
 
 
+
+});
+
+describe("Login button Test ", () => {
+  it("Testing the login button", () => {
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Logout") //check button changed 
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
+  });
 });
 });
 
