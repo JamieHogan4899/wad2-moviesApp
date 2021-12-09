@@ -8,7 +8,12 @@ const filterByTitle = (movieList, string) =>
 const filterByGenre = (movieList, genreId) =>
   movieList.filter((m) => m.genre_ids.includes(genreId));
 
-  describe("trending Tests ", () => {
+  describe("Upcoming Tests ", () => {
+
+    beforeEach(() => {
+      cy.visit("/movies/Upcoming")
+    });
+
     before(() => {
       // Get movies from TMDB and store in movies variable.
       cy.request(
@@ -21,9 +26,7 @@ const filterByGenre = (movieList, genreId) =>
           movies = response.results
         })
     })
-    beforeEach(() => {
-        cy.visit("/movies/Upcoming")
-      });
+
     
      
         describe("Page test", () => {
@@ -47,13 +50,14 @@ const filterByGenre = (movieList, genreId) =>
               Upcoming = response.results;
             });
           });
-        
+
           beforeEach(() => {
             cy.visit("/movies/Upcoming")
           });
         
+         
           it("Navagation Between Home Page and Upcoming Page", () => {
-            cy.get("header").find(".MuiToolbar-root").find("button").eq(2).click();  //go back home using header
+            cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();  //go back home using header
             cy.get("h3").contains("Discover Movies"); //check my page is home
 
             cy.get("button[aria-label='go back'").click();  //use back button to go back to trending 
@@ -72,7 +76,7 @@ const filterByGenre = (movieList, genreId) =>
       cy.url().should("include", `/movies/${Upcoming[0].id}`); //check url is new one 
    
       
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(4).click();  //use header to go to Upcoming
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();  //use header to go to Upcoming
       cy.get("h3").contains("Upcoming Movies");  //check page is favourites 
 });
 });
@@ -112,4 +116,15 @@ describe("Filtering Tests", () => {
         cy.get("#filled-search").clear().type(searchString); // Enter b in text box
         
     });
+
+
+    describe("Login button Test ", () => {
+      it("Testing the login button", () => {
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Logout") //check button changed 
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
+      });
     });
+    
+  });

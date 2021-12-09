@@ -117,16 +117,24 @@ describe("Home Page ", () => {
                 cy.get("button[aria-label='add to favorites']").eq(1).click();
                 cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
 
-
-
-
-
-
+            });
             });
 
-            })
+            describe("Login button Test ", () => {
+              it("Testing the login button", () => {
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Logout") //check button changed 
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
+
+
+
+              });
 
         
    });
  });
-});
+
+}); 
+}); 
+
