@@ -14,7 +14,7 @@ In this repo is my movies app. The files also includes cypress tests made for th
 + User can see details and reviews on tv shows, these features also tested
 + User can select a Favourite TV show, this feature tested
 
-## API endpoints.
+### API endpoints.
 Get trending movies for that day - trending/movie/day
 Get popular Tv shows -/tv/popular
 Get tv show imaages for display on more info page- tv/${id}/images
@@ -22,7 +22,7 @@ When user clicks more info on tv show card, get the infomation for that - tv/${i
 Get the tv gernes for the filter card - tv/${id}
 Get the reviews for a tv show - tv/${id}
 
-##ÙI Design
+### UI Design
 ![image](https://user-images.githubusercontent.com/78024990/145415226-e74c10be-c0fd-4b87-85ec-0fa1d28443ec.png)
 Upcoming movies very simaler to home page, more info and review buttons work the exact same way as Home page also. The add to playlist button works, see console see functionality. 
 Add to playlist button tested, but because the button has no functionality the test has no "check".
