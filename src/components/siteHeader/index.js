@@ -52,8 +52,7 @@ const SiteHeader = ( { history }) => {
 
   const handleLogin =   () => {
    setLogin(!login);
-    console.log( "login is " + setLogin)
-  }
+    }
 
   var buttonText ="Login"
   if (login) { buttonText = "Logout" }
