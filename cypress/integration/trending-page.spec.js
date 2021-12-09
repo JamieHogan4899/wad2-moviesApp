@@ -147,6 +147,11 @@ describe("Filtering Tests", () => {
     
 });
 
+
+
+});
+
+
 describe("Login button Test ", () => {
   it("Testing the login button", () => {
     cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
@@ -155,9 +160,5 @@ describe("Login button Test ", () => {
     cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
 
 
-
   });
-
-
-});
 });
