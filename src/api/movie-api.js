@@ -38,7 +38,7 @@ export const getMovies = () => {
     };
 
 
-    export const getTrendingMovies = () => {
+export const getTrendingMovies = () => {
         return fetch(
            'api/movies/tmdb/trending',{headers: {
                 'Authorization': window.localStorage.getItem('token')
@@ -47,7 +47,7 @@ export const getMovies = () => {
             ).then(res => res.json());
         };
 
-        export const getTvShows = () => {
+export const getTvShows = () => {
             return fetch(
                'api/movies/tmdb/tvShows',{headers: {
                     'Authorization': window.localStorage.getItem('token')
@@ -55,7 +55,29 @@ export const getMovies = () => {
                 }
                 ).then(res => res.json());
             };
+
+export const getTvGenres = () => {
+                return fetch(
+                   'api/movies/tmdb/tvGenres',{headers: {
+                        'Authorization': window.localStorage.getItem('token')
+                    }
+                    }
+                    ).then(res => res.json());
+                };
+
+export const getGenres = () => {
+                    return fetch(
+                       'api/movies/tmdb/movieGenres',{headers: {
+                            'Authorization': window.localStorage.getItem('token')
+                        }
+                        }
+                        ).then(res => res.json());
+                    };
+
+
     
+            
+
 
 
    

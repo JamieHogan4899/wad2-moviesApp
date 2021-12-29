@@ -11,7 +11,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg';
-import { getTvGenres } from "../../api/tmdb-api";
+//import { getTvGenres } from "../../api/tmdb-api";
+import { getTvGenres } from "../../api/movie-api";
+
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
 
