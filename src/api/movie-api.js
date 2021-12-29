@@ -38,6 +38,16 @@ export const getMovies = () => {
     };
 
 
+    export const getTrendingMovies = () => {
+        return fetch(
+           'api/movies/tmdb/trending',{headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+            }
+            ).then(res => res.json());
+        };
+
+
    
   
  

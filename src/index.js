@@ -41,7 +41,7 @@ const App = () => {
         <MoviesContextProvider>
             {" "}
             <Switch>
-            <PrivateRoute exact path="/movies/Trending" component={TrendingPage} />
+            <PrivateRoute exact path="/Trending" component={TrendingPage} />
         <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
         <PrivateRoute exact path="/upcoming" component={UpcomingMoviePage} />  
         <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
