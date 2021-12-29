@@ -26,3 +26,5 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+
+ 
