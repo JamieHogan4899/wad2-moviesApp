@@ -1,37 +1,40 @@
-import React from "react";
-import PageTemplate from "../components/templateMovieListPage";
-import { useQuery } from 'react-query'
-import Spinner from '../components/spinner'
-import {getMovies} from '../api/tmdb-api'
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import React, { useContext, useState } from "react";
+import { Redirect } from "react-router-dom";
+import { AuthContext } from '../contexts/authContext';
+import { Link } from "react-router-dom";
 
+const LoginPage = props => {
+  const context = useContext(AuthContext)
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-const HomePage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const login = () => {
+    context.authenticate(userName, password);
+  };
 
-  if (isLoading) {
-    return <Spinner />
+  // Set 'from' to path where browser is redirected after a successful login.
+  // Either / or the protected path user tried to access.
+  const { from } = props.location.state || { from: { pathname: "/" } };
+
+  if (context.isAuthenticated === true) {
+    return <Redirect to={from} />;
   }
-
-  if (isError) {
-    return <h1>{error.message}</h1>
-  }  
-  const movies = data.results;
-
-  // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
-
-
   return (
-    <PageTemplate
-      title="Test"
-      movies={movies}
-      action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
-      }}
-    />
-);
+    <>
+      <h2>Login page</h2>
+      <p>You must log in to view the protected pages </p>
+      <input id="username" placeholder="user name" onChange={e => {
+        setUserName(e.target.value);
+      }}></input><br />
+      <input id="password" type="password" placeholder="password" onChange={e => {
+        setPassword(e.target.value);
+      }}></input><br />
+      {/* Login web form  */}
+      <button onClick={login}>Log in</button>
+      <p>Not Registered?
+      <Link to="/signup">Sign Up!</Link></p>
+    </>
+  );
 };
 
-export default HomePage;
+export default LoginPage;
