@@ -47,6 +47,16 @@ export const getMovies = () => {
             ).then(res => res.json());
         };
 
+        export const getTvShows = () => {
+            return fetch(
+               'api/movies/tmdb/tvShows',{headers: {
+                    'Authorization': window.localStorage.getItem('token')
+                }
+                }
+                ).then(res => res.json());
+            };
+    
+
 
    
   
