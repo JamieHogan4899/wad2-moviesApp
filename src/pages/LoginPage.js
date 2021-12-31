@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext';
 import { Link } from "react-router-dom";
 
+
 const LoginPage = props => {
   const context = useContext(AuthContext)
   const [userName, setUserName] = useState("");
@@ -19,9 +20,11 @@ const LoginPage = props => {
   if (context.isAuthenticated === true) {
     return <Redirect to={from} />;
   }
-  return (
+  return  (
+
+  
+
     <>
-    
     
       <h1><center>Please login to continue</center></h1>
       <center><input id="username" placeholder="user name" onChange={e => {
@@ -31,6 +34,10 @@ const LoginPage = props => {
         setPassword(e.target.value);
       }}></input></center><br />
       {/* Login web form  */}
+
+
+
+      
       <center><button onClick={login} id="login-button">Log in</button></center>
       <center><i><p>Not Registered?
       <Link to="/signup">Sign Up!</Link></p></i></center>

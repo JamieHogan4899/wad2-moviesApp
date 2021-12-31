@@ -24,19 +24,23 @@ const SignUpPage = props => {
 
   return (
     <>
-      <h2>SignUp page</h2>
-      <p>You must register a username and password to log in </p>
-      <input value={userName} placeholder="user name" onChange={e => {
+       <center><h2>SignUp page</h2> </center>
+       <center> <p>You must register a username and password to log in </p> </center>
+       <center><input value={userName} placeholder="user name" onChange={e => {
         setUserName(e.target.value);
-      }}></input><br />
-      <input value={password} type="password" placeholder="password" onChange={e => {
+      }}></input> </center>
+      
+      <br />
+      <center> <input value={password} type="password" placeholder="password" onChange={e => {
         setPassword(e.target.value);
-      }}></input><br />
-      <input value={passwordAgain} type="password" placeholder="password again" onChange={e => {
+      }}></input></center>
+      
+      <br />
+      <center><input value={passwordAgain} type="password" placeholder="password again" onChange={e => {
         setPasswordAgain(e.target.value);
-      }}></input><br />
+      }}></input></center><br />
       {/* Login web form  */}
-      <button onClick={register}>Register</button>
+      <center><button onClick={register}>Register</button></center>
     </>
   );
 };

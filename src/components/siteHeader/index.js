@@ -5,13 +5,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -40,8 +40,11 @@ const SiteHeader = ( { history }) => {
     { label: "Favourite Tv Shows", path: "/shows/TvShowFavPage" },
     { label: "login", path: "/login" }
 
+    
+
   ];
 
+  
 
   const handleMenuSelect = (pageURL) => {
     history.push(pageURL);
