@@ -21,18 +21,19 @@ const LoginPage = props => {
   }
   return (
     <>
-      <h2>Login page</h2>
-      <p>You must log in to view the protected pages </p>
-      <input id="username" placeholder="user name" onChange={e => {
+    y
+    
+      <h1><center>Please login to coutiune</center></h1>
+      <center><input id="username" placeholder="user name" onChange={e => {
         setUserName(e.target.value);
-      }}></input><br />
-      <input id="password" type="password" placeholder="password" onChange={e => {
+      }}></input></center><br />
+      <center><input id="password" type="password" placeholder="password" onChange={e => {
         setPassword(e.target.value);
-      }}></input><br />
+      }}></input></center><br />
       {/* Login web form  */}
-      <button onClick={login}>Log in</button>
-      <p>Not Registered?
-      <Link to="/signup">Sign Up!</Link></p>
+      <center><button onClick={login}>Log in</button></center>
+      <center><i><p>Not Registered?
+      <Link to="/signup">Sign Up!</Link></p></i></center>
     </>
   );
 };

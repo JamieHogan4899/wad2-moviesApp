@@ -21,8 +21,12 @@ describe("Home Page ", () => {
       })
   })
   beforeEach(() => {
-    cy.visit("/")
+    cy.get("h1").contains("Please login to coutiune")
+     
   });
+
+
+
 
   describe("Base tests", () => {
     describe("Base test", () => {

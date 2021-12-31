@@ -72,7 +72,10 @@ export const getGenres = () => {
                         }
                         }
                         ).then(res => res.json());
-                    };
+                    };  
+
+
+
 
 
     

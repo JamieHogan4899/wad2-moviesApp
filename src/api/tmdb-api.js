@@ -1,17 +1,4 @@
-export const getMovies = () => {
 
-  return fetch(
-  ).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.json().message);
-    }
-    return response.json();
-  })
-  .catch((error) => {
-     throw error
-  });
-};
-  
 export const getMovie = (args) => {
    console.log(args)
   const [, idPart] = args.queryKey;
