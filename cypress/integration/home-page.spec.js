@@ -21,12 +21,12 @@ describe("Home Page ", () => {
       })
   })
   beforeEach(() => {
-    cy.get("h1").contains("Please login to coutiune")
-     
+    describe("Go to page and login", () => {
+    cy.visit("/") // go to home page
+
+
   });
-
-
-
+});
 
   describe("Base tests", () => {
     describe("Base test", () => {
@@ -95,9 +95,9 @@ describe("Home Page ", () => {
        });
      });
      describe("By movie title, while in genre", () => {
-        it("should only display movies with free in the title, in the genre comedy", () => {
-          let searchString = "free";
-          const selectedGenreText = "Comedy";
+        it("should only display movies with spider in the title, in the genre comedy", () => {
+          let searchString = "spider";
+          const selectedGenreText = "Action";
           cy.get("#genre-select").click();
           cy.get("li").contains(selectedGenreText).click();
           let matchingMovies = filterByTitle(movies, searchString);
@@ -124,21 +124,16 @@ describe("Home Page ", () => {
             });
             });
 
-            describe("Login button Test ", () => {
-              it("Testing the login button", () => {
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Logout") //check button changed 
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
+            
 
 
 
-              });
+          
 
         
    });
  });
 
 }); 
-}); 
+
 
