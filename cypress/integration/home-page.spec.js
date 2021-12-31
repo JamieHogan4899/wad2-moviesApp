@@ -51,7 +51,7 @@ describe("Home Page ", () => {
   describe("Filtering", () => {
     describe("By movie title", () => {
      it("should only display movies with m in the title", () => {
-       let searchString = "m";
+       let searchString = "spider";
        let matchingMovies = filterByTitle(movies, searchString);
        cy.get("#filled-search").clear().type(searchString); // Enter m in text box
        cy.get(".MuiCardHeader-content").should(
