@@ -23,7 +23,7 @@ const filterByGenre = (showList, genreId) =>
      
 
       beforeEach(() => {
-        cy.visit("/movies/Upcoming")
+        cy.visit("/movies/")
   
         cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
   
@@ -35,7 +35,7 @@ const filterByGenre = (showList, genreId) =>
   
       cy.get("#login-button").click()
   
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click().click();  //use header to go to Upcoming
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click().click();  //use header to go to TvShow
   
   
       });
