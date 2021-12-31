@@ -21,8 +21,23 @@ describe("trending Tests ", () => {
         movies = response.results
       })
   })
+ 
   beforeEach(() => {
     cy.visit("/movies/Trending")
+
+    cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
+
+  let username = "user1";
+  const password = "test1";
+
+  cy.get("#username").clear().type(username); // Enter username in text box
+  cy.get("#password").clear().type(password);
+
+  cy.get("#login-button").click()
+
+  cy.get("header").find(".MuiToolbar-root").find("button").eq(4).click().click();  //use header to go to Trending
+
+
   });
 
  
@@ -53,10 +68,7 @@ describe("trending Tests ", () => {
         });
       });
 
-        
-  beforeEach(() => {
-    cy.visit("/movies/Trending")
-  });
+      
 
 
     it("Navagation Between Home Page and Trending Page", () => {
@@ -114,9 +126,6 @@ it("Unfavouriting a movie, favourited in trending page", () => {
 
 describe("Filtering Tests", () => { 
   
-  beforeEach(() => {
-    cy.visit("/movies/Trending")
-  });
   
   it("Check to see if user can change genre on trending page", () => { 
     const selectedGenreText = "Comedy";
