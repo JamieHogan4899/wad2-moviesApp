@@ -33,18 +33,11 @@ describe("Home Page ", () => {
     cy.get("#password").clear().type(password);
 
     cy.get("#login-button").click()
-<<<<<<< HEAD
 
 
 
     });
   });
-=======
->>>>>>> UpcomingPageTests
-
-
-
-    });
   
   describe("Base tests", () => {
     describe("Base test", () => {
