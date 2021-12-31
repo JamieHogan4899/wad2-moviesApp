@@ -22,7 +22,17 @@ describe("Home Page ", () => {
   })
   beforeEach(() => {
     describe("Go to page and login", () => {
+    cy.visit("/") // go to home page
 
+    cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
+
+    let username = "user1";
+    const password = "test1";
+
+    cy.get("#username").clear().type(username); // Enter username in text box
+    cy.get("#password").clear().type(password);
+
+    cy.get("#login-button").click()
 
 
 

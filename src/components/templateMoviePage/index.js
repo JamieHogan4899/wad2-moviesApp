@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import { getMovieImages } from "../../api/tmdb-api";
+//import { getMovieImages } from "../../api/movie-api";
+
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
 

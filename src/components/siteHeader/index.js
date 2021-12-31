@@ -34,10 +34,11 @@ const SiteHeader = ( { history }) => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Trending Movies", path: "/movies/Trending" },
-    { label: "TV Shows", path: "/shows/tvShowsPage" },
+    { label: "Upcoming", path: "/upcoming" },
+    { label: "Trending Movies", path: "/Trending" },
+    { label: "TV Shows", path: "/tvShowsPage" },
     { label: "Favourite Tv Shows", path: "/shows/TvShowFavPage" },
+    { label: "test", path: "/test" }
 
   ];
 
@@ -52,8 +53,7 @@ const SiteHeader = ( { history }) => {
 
   const handleLogin =   () => {
    setLogin(!login);
-    console.log( "login is " + setLogin)
-  }
+    }
 
   var buttonText ="Login"
   if (login) { buttonText = "Logout" }
@@ -73,12 +73,7 @@ const SiteHeader = ( { history }) => {
             All you ever wanted to know about Movies!
           </Typography>
 
-        
-
-       
                   <button onClick={handleLogin} color="inherit">  {buttonText}
-
-
                   </button>
                   
 
