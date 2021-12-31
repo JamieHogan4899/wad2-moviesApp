@@ -16,7 +16,7 @@ import TvShowsPage from "./pages/tvShowsPage";
 import tvDetailsPage from "./pages/tvDetailsPage";
 import tvReviewPage from "./pages/tvReviewPage";
 import TvFavouritePage from "./pages/tvFavouritesPage";
-import testPage from "./pages/test";
+import LoginPage from "./pages/LoginPage";
 import AuthProvider from "./contexts/authContext";
 import SignUpPage from "./pages/signUpPage";
 import PrivateRoute from "./privateRoute";
@@ -49,12 +49,12 @@ const App = () => {
         <PrivateRoute exact path="/shows/TvShowFavPage" component={TvFavouritePage} />
         <PrivateRoute exact path="/movies/:id" component={MoviePage} /> 
         <PrivateRoute exact path="/shows/:id" component={tvDetailsPage} /> 
-        <Route exact path="/test" component={testPage} /> 
+        <Route exact path="/login" component={LoginPage} /> 
         <Route exact path="/SignUP" component={SignUpPage} /> 
         <PrivateRoute exact path="/" component={HomePage} /> 
         <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
         <PrivateRoute path="/tvreviews/:id" component={tvReviewPage} />
-        <Redirect from="*" to="test" />
+        <Redirect from="*" to="/login" />
         </Switch>
         </MoviesContextProvider>
         </AuthProvider>
