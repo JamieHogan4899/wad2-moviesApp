@@ -63,8 +63,8 @@ describe("Home Page ", () => {
        });
      })
     
-     it("should only display movies with o in the title", () => {
-       let searchString = "o";
+     it("should only display movies with s in the title", () => {
+       let searchString = "s";
        let matchingMovies = filterByTitle(movies, searchString);
        cy.get("#filled-search").clear().type(searchString); // Enter m in text box
        cy.get(".MuiCardHeader-content").should(
