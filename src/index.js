@@ -20,6 +20,7 @@ import LoginPage from "./pages/LoginPage";
 import AuthProvider from "./contexts/authContext";
 import SignUpPage from "./pages/signUpPage";
 import PrivateRoute from "./privateRoute";
+import AuthHeader from "./authHeader"
 
 
 const queryClient = new QueryClient({
@@ -37,7 +38,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
       <AuthProvider>
+      
         <SiteHeader />
+        <AuthHeader />
         <MoviesContextProvider>
             {" "}
             <Switch>
