@@ -21,9 +21,24 @@ describe("Home Page ", () => {
       })
   })
   beforeEach(() => {
-    cy.visit("/")
-  });
+    describe("Go to page and login", () => {
+    cy.visit("/") // go to home page
 
+    cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
+
+    let username = "user1";
+    const password = "test1";
+
+    cy.get("#username").clear().type(username); // Enter username in text box
+    cy.get("#password").clear().type(password);
+
+    cy.get("#login-button").click()
+
+
+
+    });
+  });
+  
   describe("Base tests", () => {
     describe("Base test", () => {
         it("displays page header", () => {
@@ -36,7 +51,7 @@ describe("Home Page ", () => {
   describe("Filtering", () => {
     describe("By movie title", () => {
      it("should only display movies with m in the title", () => {
-       let searchString = "m";
+       let searchString = "spider";
        let matchingMovies = filterByTitle(movies, searchString);
        cy.get("#filled-search").clear().type(searchString); // Enter m in text box
        cy.get(".MuiCardHeader-content").should(
@@ -48,8 +63,8 @@ describe("Home Page ", () => {
        });
      })
     
-     it("should only display movies with o in the title", () => {
-       let searchString = "o";
+     it("should only display movies with s in the title", () => {
+       let searchString = "s";
        let matchingMovies = filterByTitle(movies, searchString);
        cy.get("#filled-search").clear().type(searchString); // Enter m in text box
        cy.get(".MuiCardHeader-content").should(
@@ -91,9 +106,9 @@ describe("Home Page ", () => {
        });
      });
      describe("By movie title, while in genre", () => {
-        it("should only display movies with free in the title, in the genre comedy", () => {
-          let searchString = "free";
-          const selectedGenreText = "Comedy";
+        it("should only display movies with spider in the title, in the genre comedy", () => {
+          let searchString = "spider";
+          const selectedGenreText = "Action";
           cy.get("#genre-select").click();
           cy.get("li").contains(selectedGenreText).click();
           let matchingMovies = filterByTitle(movies, searchString);
@@ -120,21 +135,24 @@ describe("Home Page ", () => {
             });
             });
 
-            describe("Login button Test ", () => {
-              it("Testing the login button", () => {
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Logout") //check button changed 
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
-                cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
+            
+    describe("Login button Test ", () => {
+      it("Testing the login button", () => {
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Logout") //check button changed 
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click(); //click login button
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).contains("Login") //check button changed 
+      });
+    });
 
 
 
-              });
+          
 
         
    });
  });
 
 }); 
-}); 
+
 

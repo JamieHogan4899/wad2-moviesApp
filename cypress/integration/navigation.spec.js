@@ -25,9 +25,28 @@ describe("Navigation", () => {
         reviews = response.results;
       });
   });
+ 
   beforeEach(() => {
-    cy.visit("/");
-  });  
+    describe("Go to page and login", () => {
+    cy.visit("/") // go to home page
+
+    cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
+
+    let username = "user1";
+    const password = "test1";
+
+    cy.get("#username").clear().type(username); // Enter username in text box
+    cy.get("#password").clear().type(password);
+
+    cy.get("#login-button").click()
+
+
+
+    });
+  });
+
+
+
   describe("From the home page", () => {
     it("should navigate to the movie details page and change browser URL", () => {
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
@@ -38,12 +57,25 @@ describe("Navigation", () => {
     describe("The site header", () => {
         describe("when the viewport is desktop scale", () => {
           it("should allow navigation to the Favourites page from the link", () => {
-            cy.get("header").find(".MuiToolbar-root").find("button").eq(2).click();
+            cy.get("header").find(".MuiToolbar-root").find("button").eq(2).click().click();
             cy.url().should("include", `/favorites`);
             cy.get("h3").contains("Favorite Movies");
           });
         });
-     ;
+        // describe(
+        //   "when the viewport is a mobile",
+        //   {
+        //     viewportHeight: 896,
+        //     viewportWidth: 414,
+        //   },
+        //   () => {
+        //     it("should allow navigation to the Favourites page from the dropdown menu", () => {
+        //       cy.get("header").find("button").click();
+        //       cy.get("li").eq(3).click();
+        //       cy.url().should("include", `/favorites`);
+        //       cy.get("h3").contains("Favorite Movies");
+        //     });
+        //   });
       });
       describe("From the Favorites page", () => {
         beforeEach(() => {

@@ -1,9 +1,11 @@
 import React from "react";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
-import {getTvShows} from '../api/tmdb-api'
+//import {getTvShows} from '../api/tmdb-api'
+import {getTvShows} from '../api/movie-api'
 import PageTemplate from "../components/templateTvShowList";
 import AddToFavoritesTvIcon from '../components/cardIcons/AddToFavouritesTv'
+
 
 
 
@@ -17,6 +19,9 @@ const TvShowsPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }  
+
+
+  
   const shows = data.results;
 
  // Redundant, but necessary to avoid app crashing.

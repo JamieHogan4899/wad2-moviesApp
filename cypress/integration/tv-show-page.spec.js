@@ -19,11 +19,31 @@ const filterByGenre = (showList, genreId) =>
         })
     })
 
-    beforeEach(() => {
-        cy.visit("/shows/tvShowsPage")
+    
+     
+
+      beforeEach(() => {
+        cy.visit("/movies/")
+  
+        cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
+  
+      let username = "user1";
+      const password = "test1";
+  
+      cy.get("#username").clear().type(username); // Enter username in text box
+      cy.get("#password").clear().type(password);
+  
+      cy.get("#login-button").click()
+  
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click().click();  //use header to go to TvShow
+  
+  
       });
+      
 
 
+
+      
       
       describe("Page test", () => {
         it("displays page header", () => {
@@ -82,7 +102,7 @@ const filterByGenre = (showList, genreId) =>
             cy.url().should("include", `/shows/${tvShows[0].id}`); //check url is new one 
 
             cy.wait(2500);
-            cy.get(".MuiButtonBase-root").eq(8).contains("Reviews").click(); //Get the review button and click 
+            cy.get(".MuiButtonBase-root").eq(9).contains("Reviews").click(); //Get the review button and click 
 
             cy.get(".MuiTableCell-root").contains("Author"); //Check Review Drop Menu pops down
 
@@ -91,10 +111,7 @@ const filterByGenre = (showList, genreId) =>
 
           describe("Filtering Tests", () => { 
   
-          beforeEach(() => {
-          cy.visit("/shows/tvShowsPage")
-           });
-
+          
            
           it("Check to see if user can change genre for Tv Shows", () => { 
           const selectedGenreText = "Comedy";

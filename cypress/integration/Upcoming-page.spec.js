@@ -10,9 +10,7 @@ const filterByGenre = (movieList, genreId) =>
 
   describe("Upcoming Tests ", () => {
 
-    beforeEach(() => {
-      cy.visit("/movies/Upcoming")
-    });
+   
 
     before(() => {
       // Get movies from TMDB and store in movies variable.
@@ -26,6 +24,24 @@ const filterByGenre = (movieList, genreId) =>
           movies = response.results
         })
     })
+    
+    beforeEach(() => {
+      cy.visit("/movies/Upcoming")
+
+      cy.get("h1").contains("Please login to continue"); //check to see if being asked for a login
+
+    let username = "user1";
+    const password = "test1";
+
+    cy.get("#username").clear().type(username); // Enter username in text box
+    cy.get("#password").clear().type(password);
+
+    cy.get("#login-button").click()
+
+    cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click().click();  //use header to go to Upcoming
+
+
+    });
 
     
      
@@ -51,10 +67,7 @@ const filterByGenre = (movieList, genreId) =>
             });
           });
 
-          beforeEach(() => {
-            cy.visit("/movies/Upcoming")
-          });
-        
+       
          
           it("Navagation Between Home Page and Upcoming Page", () => {
             cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();  //go back home using header
@@ -83,10 +96,7 @@ const filterByGenre = (movieList, genreId) =>
 
 describe("Filtering Tests", () => { 
   
-    beforeEach(() => {
-      cy.visit("/movies/Upcoming")
-    });
-
+  
     it("Check to see if user can change genre on upcoming page", () => { 
         const selectedGenreText = "Comedy";
         const backToAll = "All";

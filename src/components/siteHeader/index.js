@@ -5,13 +5,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -34,13 +34,17 @@ const SiteHeader = ( { history }) => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Trending Movies", path: "/movies/Trending" },
-    { label: "TV Shows", path: "/shows/tvShowsPage" },
+    { label: "Upcoming", path: "/upcoming" },
+    { label: "Trending Movies", path: "/Trending" },
+    { label: "TV Shows", path: "/tvShowsPage" },
     { label: "Favourite Tv Shows", path: "/shows/TvShowFavPage" },
+    { label: "login", path: "/login" }
+
+    
 
   ];
 
+  
 
   const handleMenuSelect = (pageURL) => {
     history.push(pageURL);
@@ -52,8 +56,7 @@ const SiteHeader = ( { history }) => {
 
   const handleLogin =   () => {
    setLogin(!login);
-    console.log( "login is " + setLogin)
-  }
+    }
 
   var buttonText ="Login"
   if (login) { buttonText = "Logout" }
@@ -73,12 +76,7 @@ const SiteHeader = ( { history }) => {
             All you ever wanted to know about Movies!
           </Typography>
 
-        
-
-       
-                  <button onClick={handleLogin} color="inherit" >  {buttonText}
-
-
+                  <button onClick={handleLogin} color="inherit">  {buttonText}
                   </button>
                   
 

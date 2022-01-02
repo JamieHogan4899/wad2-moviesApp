@@ -1,0 +1,129 @@
+swagger: "2.0"
+info:
+  title: MoviesAPI 
+  description: This API is used to my movies react app. This documentation goes through the api calls in my api.
+  version: 1.1.0
+  contact:
+    email: "20084469@mail.wit.ie"
+  
+host: "localhost:8080"
+basePath: "/v1"
+tags:
+- name: "api/movies/tmdb/movieGenres"
+  description: "Get all genres for movies"
+- name: "api/movies/tmdb/tvGenres"
+  description: "Get all genres for tv shows"
+- name: "api/movies/tmdb/tvShows"
+  description: "Get popular tv shows"
+- name: "api/movies/tmdb/trending"
+  description: "Get movies that are trending today"
+- name: "api/movies/tmdb/discover"
+  description: "Get popular Movies"
+- name: "api/movies/tmdb/upcoming"
+  description: "Get upcoming Movies"
+- name: "api/user"
+  description: "Get, Edit, Create users"
+
+schemes:
+- "http" 
+
+
+paths:
+  
+  /api/movies/tmdb/movieGenres:
+    get:
+      description: get movie genres
+      tags:
+      - "api/movies/tmdb/movieGenres"
+      responses:
+        200:
+          description: OK
+    
+  /api/movies/tmdb/tvGenres:
+    get:
+      description: Get tv genres
+      tags:
+      - "api/movies/tmdb/tvGenres"
+      responses:
+        200:
+          description: OK
+  
+  /api/movies/tmdb/tvShows:
+    get:
+      description: Get popular tv shows
+      tags:
+      - "api/movies/tmdb/tvShows"
+      responses:
+        200:
+          description: OK
+
+  /api/movies/tmdb/trending:
+    get:
+      description: Get movies that are trending today
+      tags:
+      - "api/movies/tmdb/trending"
+      responses:
+        200:
+          description: OK
+
+  /api/movies/tmdb/discover:
+    get:
+      description: Get popular movies
+      tags:
+      - "api/movies/tmdb/discover"
+      responses:
+        200:
+          description: OK
+
+  /api/movies/tmdb/upcoming:
+    get:
+      description: Get upcoming movies
+      tags:
+      - "api/movies/tmdb/upcoming"
+      responses:
+        200:
+          description: OK
+    
+  /api/user:
+    get:
+      description: retrives users from the database 
+      tags:
+      - "api/user"
+      responses:
+        200:
+          description: OK
+          
+    post:
+      description: add a user to the databse
+      tags:
+      - "api/user"
+      responses: 
+        200: 
+          description: "true"
+        400:
+          description: Authentication failed. Wrong password.
+        401: 
+     
+          description: Authentication failed. User not found.
+          
+    put:
+      description: update a users infomation 
+      tags:
+      - "api/user"
+      responses:
+        200:
+          description: User Updated Sucessfully
+          
+          
+          
+          
+
+    
+    
+    
+          
+    
+          
+          
+    
+    
