@@ -29,9 +29,12 @@ schemes:
 
 
 paths:
-  /api/movies/tmdb/movieGenre:
+  
+  /api/movies/tmdb/movieGenres:
     get:
       description: get movie genres
+      tags:
+      - "api/movies/tmdb/movieGenres"
       responses:
         200:
           description: OK
@@ -100,6 +103,7 @@ paths:
         400:
           description: Authentication failed. Wrong password.
         401: 
+     
           description: Authentication failed. User not found.
           
     put:
