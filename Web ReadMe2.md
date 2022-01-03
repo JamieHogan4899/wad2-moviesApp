@@ -21,9 +21,8 @@ REACT_APP_TMDB_KEY=....
 FAST_REFRESH=false
 
 ## API Design
-To open swagger documentation, please open the terminal in the vsCode and enter: -npm install -g swagger
-                                                                                  -swagger project edit 
 
+Documentation: https://app.swaggerhub.com/apis/20084469/movies-api/1.1.0
 
 ## Security and Authentication
 All Routes Protected bar login and sign up so user needs to sing in before moving into the site
